@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Participant Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --main-color: #4CAF50;
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --border-radius: 12px;
+      --padding: 16px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      width: 100%;
+      max-width: 600px;
+      padding: var(--padding);
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--main-color);
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    input[type="text"],
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--main-color);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    #result {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      font-weight: bold;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>Knowledge Quiz</h1>
+
+    <form id="quizForm">
+      <div class="question">
+        <label>1. What is the capital of France?</label>
+        <input type="text" name="q1" required>
+      </div>
+
+      <div class="question">
+        <label>2. Which number is even?</label>
+        <input type="radio" name="q2" value="3" required> 3<br>
+        <input type="radio" name="q2" value="4"> 4<br>
+        <input type="radio" name="q2" value="5"> 5
+      </div>
+
+      <div class="question">
+        <label>3. Select the colors in the rainbow (choose all that apply):</label>
+        <input type="checkbox" name="q3" value="red"> Red<br>
+        <input type="checkbox" name="q3" value="cyan"> Cyan<br>
+        <input type="checkbox" name="q3" value="blue"> Blue
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      let score = 0;
+      const total = 3;
+
+      // Q1
+      const q1 = form.q1.value.trim().toLowerCase();
+      if (q1 === 'paris') score++;
+
+      // Q2
+      const q2 = form.q2.value;
+      if (q2 === '4') score++;
+
+      // Q3
+      const q3Values = Array.from(form.querySelectorAll('input[name="q3"]:checked')).map(cb => cb.value);
+      const correctQ3 = ['red', 'blue'];
+      if (correctQ3.every(color => q3Values.includes(color)) && !q3Values.includes('cyan')) score++;
+
+      // Result
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<h2>Your Score: ${score} / ${total}</h2><p>Great job!</p>`;
+    });
+  </script>
+
+</body>
+</html>
