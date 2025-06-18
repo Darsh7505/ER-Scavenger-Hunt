@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>July Scavenger Hunt</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
       --main-color: #4CAF50;
@@ -90,12 +90,14 @@
       resize: vertical;
     }
 
-    input.correct, textarea.correct {
+    input.correct,
+    textarea.correct {
       border: 2px solid #4CAF50;
       background-color: #e8f5e9;
     }
 
-    input.incorrect {
+    input.incorrect,
+    textarea.incorrect {
       border: 2px solid #f44336;
       background-color: #ffebee;
     }
@@ -146,8 +148,12 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     @media print {
@@ -158,180 +164,202 @@
   </style>
 </head>
 <body>
+  <div class="quiz-container">
+    <h1>July Scavenger Hunt</h1>
 
-<div class="quiz-container">
-  <h1>July Scavenger Hunt</h1>
-
-  <form id="quizForm">
-    <div class="question">
-      <label>Team Member Names:</label>
-      <input type="text" name="teamNames" placeholder="Enter all participant names">
-    </div>
-
-    <!-- SECTION 1 -->
-    <div class="section">
-      <div class="section-title">Questions on the Psychosocial Factor: Balance</div>
-
+    <form id="quizForm">
       <div class="question">
-        <label>1. Complete the sentence: “A good starting point to finding balance is through ________”.</label>
-        <span class="hint">Hint: Check Staffroom for more information on the psychosocial factor ‘Balance’.</span>
-        <input type="text" name="q1">
+        <label>Team Member Names:</label>
+        <input type="text" name="teamNames" placeholder="Enter all participant names (separate each name with a comma)" />
       </div>
 
-      <div class="question">
-        <label>2. What is the usual notice period required to end or modify a remote work agreement?</label>
-        <span class="hint">Hint: Only enter in the number of days (i.e. 7).</span>
-        <input type="text" name="q2">
+      <!-- SECTION 1 -->
+      <div class="section">
+        <div class="section-title">Questions on the Psychosocial Factor: Balance</div>
+
+        <div class="question">
+          <label>1. Complete the sentence: “A good starting point to finding balance is through ________”.</label>
+          <span class="hint"
+            >Hint: Check Staffroom for more information on the psychosocial factor ‘Balance’.</span
+          >
+          <input type="text" name="q1" />
+        </div>
+
+        <div class="question">
+          <label>2. What is the usual notice period required to end or modify a remote work agreement?</label>
+          <span class="hint">Hint: Only enter in the number of days (i.e. 7).</span>
+          <input type="text" name="q2" />
+        </div>
+
+        <div class="question">
+          <label
+            >3. On HomERoom, which resource hub includes information and polices important to workplace health,
+            safety and well-being?</label
+          >
+          <input type="text" name="q3" />
+        </div>
+
+        <div class="question">
+          <label>4. What is the first of the five self-reflective questions in the 'Psychological Health and Safety Best Practices Toolkit'?</label>
+          <span class="hint"
+            >Hint: You can access the toolkit from the Healthy Workplaces Committee SharePoint page.</span
+          >
+          <input type="text" name="q4" />
+        </div>
+
+        <div class="question">
+          <label>5. Which practical self-care strategy is listed first among the six strategies to integrate into your daily routine for navigating stress and prioritizing self-care?</label>
+          <span class="hint">Hint: Check Staffroom</span>
+          <input type="text" name="q5" />
+        </div>
+
+        <div class="question">
+          <label>6. Using information on balance from the ‘Healthy Workplaces Library’, complete the following sentence: Supervisors/managers can engage employees in safe conversations by putting balance on the agenda or _____________.</label>
+          <input type="text" name="q6" />
+        </div>
+
+        <div class="question">
+          <label>7. Referring to the information on Staffroom regarding 'Balance', what is the third tip for finding balance in your work and life?</label>
+          <input type="text" name="q7" />
+        </div>
       </div>
 
-      <div class="question">
-        <label>3. On HomERoom, which resource hub includes information and polices important to workplace health, safety and well-being?</label>
-        <input type="text" name="q3">
+      <!-- SECTION 2 -->
+      <div class="section">
+        <div class="section-title">A few extra questions for fun!</div>
+
+        <div class="question">
+          <label>8. What colour is the Saskatchewan logo on the HomERoom page?</label>
+          <span class="hint">Hint: it might be a colour…or a shade…</span>
+          <input type="text" name="q8" />
+        </div>
+
+        <div class="question">
+          <label>9. Based on the Energy and Resources organizational chart, what is the total number of positions within the Lands and Mineral Tenure (LMT) Branch?</label>
+          <span class="hint">Hint: Count all the boxes – vacant/term positions count!</span>
+          <input type="text" name="q9" />
+        </div>
+
+        <div class="question">
+          <label>10. What is the Mission Statement for Energy and Resources?</label>
+          <span class="hint">Hint: Check the ‘About ER Onboarding Module’</span>
+          <input type="text" name="q10" />
+        </div>
       </div>
 
-      <div class="question">
-        <label>4. What is the first of the five self-reflective questions in the Toolkit?</label>
-        <span class="hint">Hint: You can access the toolkit from the Healthy Workplaces Committee SharePoint page.</span>
-        <input type="text" name="q4">
+      <!-- SECTION 3 -->
+      <div class="section">
+        <div class="section-title">Discussion Questions – there’s no wrong answer!</div>
+
+        <div class="question">
+          <label>11. What does the psychosocial factor 'balance' mean to you?</label>
+          <textarea name="q11" rows="4"></textarea>
+        </div>
+
+        <div class="question">
+          <label>12. What’s one small change – either at work or at home – that has helped you maintain 'balance'?</label>
+          <textarea name="q12" rows="4"></textarea>
+        </div>
       </div>
 
-      <div class="question">
-        <label>5. Which self-care strategy is listed first among the six for navigating stress?</label>
-        <span class="hint">Hint: Check Staffroom</span>
-        <input type="text" name="q5">
-      </div>
+      <button type="submit">Submit Quiz</button>
+    </form>
 
-      <div class="question">
-        <label>6. Complete: Supervisors can engage employees by putting balance on the agenda or _____________.</label>
-        <input type="text" name="q6">
-      </div>
+    <div id="result"></div>
 
-      <div class="question">
-        <label>7. What is the third tip for finding balance in work and life?</label>
-        <input type="text" name="q7">
-      </div>
-    </div>
+    <button onclick="window.print()" style="background-color: #2196f3;">Print / Save as PDF</button>
+  </div>
 
-    <!-- SECTION 2 -->
-    <div class="section">
-      <div class="section-title">A few extra questions for fun!</div>
-
-      <div class="question">
-        <label>8. What colour is the Saskatchewan logo on the HomERoom page?</label>
-        <span class="hint">Hint: it might be a colour…or a shade…</span>
-        <input type="text" name="q8">
-      </div>
-
-      <div class="question">
-        <label>9. How many positions are in the LMT Branch?</label>
-        <span class="hint">Hint: Count all the boxes – vacant/term positions count!</span>
-        <input type="text" name="q9">
-      </div>
-
-      <div class="question">
-        <label>10. What is the Mission Statement for Energy and Resources?</label>
-        <span class="hint">Hint: Check the ‘About ER Onboarding Module’</span>
-        <input type="text" name="q10">
-      </div>
-    </div>
-
-    <!-- SECTION 3 -->
-    <div class="section">
-      <div class="section-title">Discussion Questions – there’s no wrong answer!</div>
-
-      <div class="question">
-        <label>11. What does the psychosocial factor “balance” mean to you?</label>
-        <textarea name="q11" rows="4"></textarea>
-      </div>
-
-      <div class="question">
-        <label>12. What’s one small change – either at work or at home – that has helped you maintain “balance”?</label>
-        <textarea name="q12" rows="4"></textarea>
-      </div>
-    </div>
-
-    <button type="submit">Submit Quiz</button>
-  </form>
-
-  <div id="result"></div>
-
-  <button onclick="window.print()" style="background-color: #2196f3;">Print / Save as PDF</button>
-</div>
-
-<script>
-  function normalize(str) {
-    return str.toLowerCase().trim().replace(/\s+/g, ' ').replace(/[?.,!]+$/, '');
-  }
-
-  const answers = {
-    q1: ['communication'],
-    q2: ['30'],
-    q3: ['health & safety hub', 'health and safety hub'],
-    q4: ['who benefits from this toolkit', 'who benefits from this toolkit?'],
-    q5: ['set boundaries'],
-    q6: ['facilitating a discussion'],
-    q7: ['flexibility'],
-    q8: ['white'],
-    q9: ['35'],
-    q10: ['to advance responsible resource development']
-  };
-
-  document.getElementById('quizForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    let score = 0;
-    const total = 12;
-
-    for (let i = 1; i <= total; i++) {
-      const field = `q${i}`;
-      const input = form[field];
-      const userInput = normalize(input.value || '');
-
-      const existingFeedback = input.parentNode.querySelector('.feedback');
-      if (existingFeedback) existingFeedback.remove();
-
-      const feedback = document.createElement('div');
-      feedback.classList.add('feedback');
-
-      if (i <= 10) {
-        const correctList = answers[field].map(a => normalize(a));
-        const isCorrect = correctList.includes(userInput);
-        input.classList.remove('correct', 'incorrect');
-
-        if (userInput && isCorrect) {
-          score++;
-          input.classList.add('correct');
-          feedback.textContent = 'Correct';
-          feedback.classList.add('correct');
-        } else {
-          input.classList.add('incorrect');
-          feedback.textContent = 'Incorrect';
-          feedback.classList.add('incorrect');
-        }
-      } else {
-        if (userInput) {
-          score++;
-          input.classList.add('correct');
-          feedback.textContent = 'Answered';
-          feedback.classList.add('correct');
-        }
-      }
-
-      input.parentNode.appendChild(feedback);
+  <script>
+    function normalize(str) {
+      return str
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, ' ')
+        .replace(/[?.,!]+$/, '');
     }
 
-    const percentage = ((score / total) * 100).toFixed(1);
-    const resultDiv = document.getElementById('result');
-    resultDiv.style.display = 'block';
-    resultDiv.innerHTML = `
-      <h2>Your Score: ${percentage}%</h2>
-      <p>Correct: ${score}</p>
-      <p>Incorrect: ${total - score}</p>
-    `;
-    resultDiv.scrollIntoView({ behavior: 'smooth' });
-  });
-</script>
+    const answers = {
+      q1: ['communication'],
+      q2: ['30'],
+      q3: ['health & safety hub', 'health and safety hub'],
+      q4: ['who benefits from this toolkit', 'who benefits from this toolkit?'],
+      q5: ['set boundaries'],
+      q6: ['facilitating a discussion'],
+      q7: ['flexibility'],
+      q8: ['white'],
+      q9: ['35'],
+      q10: ['to advance responsible resource development'],
+    };
 
+    // Prevent Enter key from submitting the form except inside textarea
+    document.getElementById('quizForm').addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' && event.target.tagName.toLowerCase() !== 'textarea') {
+        event.preventDefault();
+      }
+    });
+
+    document.getElementById('quizForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const form = event.target;
+      let score = 0;
+      const total = 12;
+
+      for (let i = 1; i <= total; i++) {
+        const field = `q${i}`;
+        const input = form[field];
+        const userInput = normalize(input.value || '');
+
+        const existingFeedback = input.parentNode.querySelector('.feedback');
+        if (existingFeedback) existingFeedback.remove();
+
+        const feedback = document.createElement('div');
+        feedback.classList.add('feedback');
+
+        if (i <= 10) {
+          const correctList = answers[field].map((a) => normalize(a));
+          const isCorrect = correctList.includes(userInput);
+          input.classList.remove('correct', 'incorrect');
+
+          if (userInput && isCorrect) {
+            score++;
+            input.classList.add('correct');
+            feedback.textContent = 'Correct';
+            feedback.classList.add('correct');
+          } else {
+            input.classList.add('incorrect');
+            feedback.textContent = 'Incorrect';
+            feedback.classList.add('incorrect');
+          }
+        } else {
+          // Discussion questions: show "Answered" or "Unanswered"
+          input.classList.remove('correct', 'incorrect');
+          if (userInput) {
+            score++;
+            input.classList.add('correct');
+            feedback.textContent = 'Answered';
+            feedback.classList.add('correct');
+          } else {
+            input.classList.add('incorrect');
+            feedback.textContent = 'Unanswered';
+            feedback.classList.add('incorrect');
+          }
+        }
+
+        input.parentNode.appendChild(feedback);
+      }
+
+      const percentage = ((score / total) * 100).toFixed(1);
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `
+        <h2>Your Score: ${percentage}%</h2>
+        <p>Correct: ${score}</p>
+        <p>Incorrect: ${total - score}</p>
+      `;
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
