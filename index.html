@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Participant Quiz</title>
+  <title>July Scavenger Hunt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
@@ -10,25 +10,26 @@
       --bg-color: #f9f9f9;
       --text-color: #333;
       --border-radius: 12px;
-      --padding: 16px;
+      --padding: 24px;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
+      background: linear-gradient(120deg, #e0f7fa, #f1f8e9);
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
     }
 
     .quiz-container {
       background-color: #fff;
       width: 100%;
-      max-width: 600px;
+      max-width: 900px;
       padding: var(--padding);
+      margin: 40px 20px;
       border-radius: var(--border-radius);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
@@ -36,43 +37,95 @@
     h1 {
       text-align: center;
       color: var(--main-color);
+      margin-bottom: 30px;
+    }
+
+    .section {
+      margin-top: 40px;
+      padding: 20px;
+      border-left: 6px solid #4CAF50;
+      background-color: #f1f8e9;
+      border-radius: 8px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 20px;
     }
 
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     label {
       display: block;
       font-weight: bold;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: var(--text-color);
+      font-size: 1.05rem;
+    }
+
+    .hint {
+      display: block;
+      font-weight: normal;
+      font-style: italic;
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
     }
 
     input[type="text"],
-    input[type="radio"],
-    input[type="checkbox"] {
-      margin-right: 10px;
-      margin-bottom: 8px;
-    }
-
-    input[type="text"] {
+    textarea {
       width: 100%;
-      padding: 10px;
+      box-sizing: border-box;
+      padding: 12px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input.correct, textarea.correct {
+      border: 2px solid #4CAF50;
+      background-color: #e8f5e9;
+    }
+
+    input.incorrect {
+      border: 2px solid #f44336;
+      background-color: #ffebee;
+    }
+
+    .feedback {
+      margin-top: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .feedback.correct {
+      color: #4CAF50;
+    }
+
+    .feedback.incorrect {
+      color: #f44336;
     }
 
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       background-color: var(--main-color);
       color: white;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: bold;
       border: none;
       border-radius: var(--border-radius);
       cursor: pointer;
       transition: background 0.3s ease;
+      margin-top: 30px;
     }
 
     button:hover {
@@ -81,80 +134,204 @@
 
     #result {
       display: none;
-      margin-top: 25px;
+      margin-top: 30px;
       padding: 20px;
       border-radius: var(--border-radius);
       background-color: #e8f5e9;
       color: #2e7d32;
       font-weight: bold;
+      font-size: 1.2rem;
       text-align: center;
       animation: fadeIn 0.5s ease-in;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media print {
+      button {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="quiz-container">
-    <h1>Knowledge Quiz</h1>
+<div class="quiz-container">
+  <h1>July Scavenger Hunt</h1>
 
-    <form id="quizForm">
+  <form id="quizForm">
+    <div class="question">
+      <label>Team Member Names:</label>
+      <input type="text" name="teamNames" placeholder="Enter all participant names">
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="section">
+      <div class="section-title">Questions on the Psychosocial Factor: Balance</div>
+
       <div class="question">
-        <label>1. What is the capital of France?</label>
-        <input type="text" name="q1" required>
+        <label>1. Complete the sentence: “A good starting point to finding balance is through ________”.</label>
+        <span class="hint">Hint: Check Staffroom for more information on the psychosocial factor ‘Balance’.</span>
+        <input type="text" name="q1">
       </div>
 
       <div class="question">
-        <label>2. Which number is even?</label>
-        <input type="radio" name="q2" value="3" required> 3<br>
-        <input type="radio" name="q2" value="4"> 4<br>
-        <input type="radio" name="q2" value="5"> 5
+        <label>2. What is the usual notice period required to end or modify a remote work agreement?</label>
+        <span class="hint">Hint: Only enter in the number of days (i.e. 7).</span>
+        <input type="text" name="q2">
       </div>
 
       <div class="question">
-        <label>3. Select the colors in the rainbow (choose all that apply):</label>
-        <input type="checkbox" name="q3" value="red"> Red<br>
-        <input type="checkbox" name="q3" value="cyan"> Cyan<br>
-        <input type="checkbox" name="q3" value="blue"> Blue
+        <label>3. On HomERoom, which resource hub includes information and polices important to workplace health, safety and well-being?</label>
+        <input type="text" name="q3">
       </div>
 
-      <button type="submit">Submit</button>
-    </form>
+      <div class="question">
+        <label>4. What is the first of the five self-reflective questions in the Toolkit?</label>
+        <span class="hint">Hint: You can access the toolkit from the Healthy Workplaces Committee SharePoint page.</span>
+        <input type="text" name="q4">
+      </div>
 
-    <div id="result"></div>
-  </div>
+      <div class="question">
+        <label>5. Which self-care strategy is listed first among the six for navigating stress?</label>
+        <span class="hint">Hint: Check Staffroom</span>
+        <input type="text" name="q5">
+      </div>
 
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+      <div class="question">
+        <label>6. Complete: Supervisors can engage employees by putting balance on the agenda or _____________.</label>
+        <input type="text" name="q6">
+      </div>
 
-      const form = event.target;
-      let score = 0;
-      const total = 3;
+      <div class="question">
+        <label>7. What is the third tip for finding balance in work and life?</label>
+        <input type="text" name="q7">
+      </div>
+    </div>
 
-      // Q1
-      const q1 = form.q1.value.trim().toLowerCase();
-      if (q1 === 'paris') score++;
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="section-title">A few extra questions for fun!</div>
 
-      // Q2
-      const q2 = form.q2.value;
-      if (q2 === '4') score++;
+      <div class="question">
+        <label>8. What colour is the Saskatchewan logo on the HomERoom page?</label>
+        <span class="hint">Hint: it might be a colour…or a shade…</span>
+        <input type="text" name="q8">
+      </div>
 
-      // Q3
-      const q3Values = Array.from(form.querySelectorAll('input[name="q3"]:checked')).map(cb => cb.value);
-      const correctQ3 = ['red', 'blue'];
-      if (correctQ3.every(color => q3Values.includes(color)) && !q3Values.includes('cyan')) score++;
+      <div class="question">
+        <label>9. How many positions are in the LMT Branch?</label>
+        <span class="hint">Hint: Count all the boxes – vacant/term positions count!</span>
+        <input type="text" name="q9">
+      </div>
 
-      // Result
-      const resultDiv = document.getElementById('result');
-      resultDiv.style.display = 'block';
-      resultDiv.innerHTML = `<h2>Your Score: ${score} / ${total}</h2><p>Great job!</p>`;
-    });
-  </script>
+      <div class="question">
+        <label>10. What is the Mission Statement for Energy and Resources?</label>
+        <span class="hint">Hint: Check the ‘About ER Onboarding Module’</span>
+        <input type="text" name="q10">
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+      <div class="section-title">Discussion Questions – there’s no wrong answer!</div>
+
+      <div class="question">
+        <label>11. What does the psychosocial factor “balance” mean to you?</label>
+        <textarea name="q11" rows="4"></textarea>
+      </div>
+
+      <div class="question">
+        <label>12. What’s one small change – either at work or at home – that has helped you maintain “balance”?</label>
+        <textarea name="q12" rows="4"></textarea>
+      </div>
+    </div>
+
+    <button type="submit">Submit Quiz</button>
+  </form>
+
+  <div id="result"></div>
+
+  <button onclick="window.print()" style="background-color: #2196f3;">Print / Save as PDF</button>
+</div>
+
+<script>
+  function normalize(str) {
+    return str.toLowerCase().trim().replace(/\s+/g, ' ').replace(/[?.,!]+$/, '');
+  }
+
+  const answers = {
+    q1: ['communication'],
+    q2: ['30'],
+    q3: ['health & safety hub', 'health and safety hub'],
+    q4: ['who benefits from this toolkit', 'who benefits from this toolkit?'],
+    q5: ['set boundaries'],
+    q6: ['facilitating a discussion'],
+    q7: ['flexibility'],
+    q8: ['white'],
+    q9: ['35'],
+    q10: ['to advance responsible resource development']
+  };
+
+  document.getElementById('quizForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    let score = 0;
+    const total = 12;
+
+    for (let i = 1; i <= total; i++) {
+      const field = `q${i}`;
+      const input = form[field];
+      const userInput = normalize(input.value || '');
+
+      const existingFeedback = input.parentNode.querySelector('.feedback');
+      if (existingFeedback) existingFeedback.remove();
+
+      const feedback = document.createElement('div');
+      feedback.classList.add('feedback');
+
+      if (i <= 10) {
+        const correctList = answers[field].map(a => normalize(a));
+        const isCorrect = correctList.includes(userInput);
+        input.classList.remove('correct', 'incorrect');
+
+        if (userInput && isCorrect) {
+          score++;
+          input.classList.add('correct');
+          feedback.textContent = 'Correct';
+          feedback.classList.add('correct');
+        } else {
+          input.classList.add('incorrect');
+          feedback.textContent = 'Incorrect';
+          feedback.classList.add('incorrect');
+        }
+      } else {
+        if (userInput) {
+          score++;
+          input.classList.add('correct');
+          feedback.textContent = 'Answered';
+          feedback.classList.add('correct');
+        }
+      }
+
+      input.parentNode.appendChild(feedback);
+    }
+
+    const percentage = ((score / total) * 100).toFixed(1);
+    const resultDiv = document.getElementById('result');
+    resultDiv.style.display = 'block';
+    resultDiv.innerHTML = `
+      <h2>Your Score: ${percentage}%</h2>
+      <p>Correct: ${score}</p>
+      <p>Incorrect: ${total - score}</p>
+    `;
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 
 </body>
 </html>
